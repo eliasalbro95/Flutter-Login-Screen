@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './signUp.dart';
+import 'homeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hello World Flutter Application',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const MyHomePage(title: 'Home page'),
     );
@@ -77,7 +79,9 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=>const HomeScreen()));
+                    },
                     child: const Text(
                       "Log in",
                       style: TextStyle(color: Colors.white),
@@ -87,12 +91,16 @@ class MyHomePage extends StatelessWidget {
               ),
               Padding(
                   padding: const EdgeInsets.all(10),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Don't have an account?"),
                       TextButton(
                         onPressed: () {
-                          print("Elias");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MyForm()));
                         },
                         child: const Text("Sign Up"),
                       ),
